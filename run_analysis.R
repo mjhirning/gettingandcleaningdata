@@ -53,7 +53,6 @@ data_names <- gsub("Mag","Magnitude",data_names)
 data_names <- gsub("-mean","Mean",data_names)
 data_names <- gsub("-std","Standard Deviation",data_names)
 colnames(data) <- c( "activity", "subject", data_names)
-write.csv(data, "./data.csv")
 
 # 5. Step 5 is creating a new data set, from the data set in step 4, which contains the data for the average for each activity and each subject
 rows <- c(1)
@@ -130,6 +129,6 @@ tidy_data <- tidy_data[2:181,]
 colnames(tidy_data)[1] <- "Activity"
 colnames(tidy_data)[2] <- "Subject"
 rownames(tidy_data) <- 1:180
-write.csv(tidy_data, "./tidy_data.csv")
+write.table(tidy_data, file = "./tidy_data.txt", row.names = FALSE)
 
 # Fin
